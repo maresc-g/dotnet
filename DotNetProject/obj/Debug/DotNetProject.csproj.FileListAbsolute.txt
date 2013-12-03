@@ -1,0 +1,46 @@
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\MainWindow.baml
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\Views\PlayerView.baml
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\MainWindow.g.cs
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\Views\PlayerView.g.cs
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\App.g.cs
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\DotNetProject_MarkupCompile.cache
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\DotNetProject_MarkupCompile.lref
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\bin\Debug\DotNetProject.exe.config
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\bin\Debug\DotNetProject.exe
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\bin\Debug\DotNetProject.pdb
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\bin\Debug\GalaSoft.MvvmLight.Extras.WPF4.dll
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\bin\Debug\GalaSoft.MvvmLight.WPF4.dll
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\App.baml
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\DotNetProject.g.resources
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\DotNetProject.Properties.Resources.resources
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\DotNetProject.csproj.GenerateResource.Cache
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\DotNetProject.exe
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\DotNetProject.pdb
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\DotNetProject.csprojResolveAssemblyReference.cache
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\Views\LibraryView.baml
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\Views\LibraryView.g.cs
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\bin\Debug\DotNetProject.exe.config
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\DotNetProject.exe
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\DotNetProject.pdb
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\bin\Debug\DotNetProject.exe
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\bin\Debug\DotNetProject.pdb
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\bin\Debug\GalaSoft.MvvmLight.Extras.WPF4.dll
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\bin\Debug\GalaSoft.MvvmLight.WPF4.dll
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\DotNetProject.csprojResolveAssemblyReference.cache
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\MainWindow.baml
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\Views\LibraryView.baml
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\Views\PlayerView.baml
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\MainWindow.g.cs
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\Views\LibraryView.g.cs
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\Views\PlayerView.g.cs
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\App.g.cs
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\DotNetProject_MarkupCompile.cache
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\DotNetProject_MarkupCompile.lref
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\App.baml
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\DotNetProject.g.resources
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\DotNetProject.Properties.Resources.resources
+C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\DotNetProject.csproj.GenerateResource.Cache

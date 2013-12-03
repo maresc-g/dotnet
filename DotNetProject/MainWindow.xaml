@@ -1,0 +1,26 @@
+﻿<Window x:Class="DotNetProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MyWindowsMediaPlayerV2"
+        Height="600"
+        Width="800"
+        DataContext="{Binding Main,
+                              Source={StaticResource Locator}}"
+        mc:Ignorable="d">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="400" Margin="29,10,0,0" VerticalAlignment="Top" Width="502">
+            <TabItem Header="Player">
+                <Grid Background="#FFE5E5E5">
+                    <ContentControl Content="{Binding PlayerViewModel}" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Library">
+                <Grid Background="#FFE5E5E5">
+                    <ContentControl Content="{Binding LibraryViewModel}" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
