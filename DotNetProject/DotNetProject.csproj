@@ -42,6 +42,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\System.Windows.Interactivity.dll</HintPath>
@@ -63,11 +65,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\ImageMedia.cs" />
+    <Compile Include="Models\Media.cs" />
+    <Compile Include="Models\Video.cs" />
+    <Compile Include="ViewModels\ImageViewModel.cs" />
     <Compile Include="ViewModels\LibraryViewModel.cs" />
+    <Compile Include="ViewModels\VideoViewModel.cs" />
+    <Compile Include="ViewModels\CurrentViewModel.cs" />
+    <Compile Include="ViewModels\MusicViewModel.cs" />
     <Compile Include="ViewModels\PlayerViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
-    <Compile Include="Views\LibraryView.xaml.cs">
-      <DependentUpon>LibraryView.xaml</DependentUpon>
+    <Compile Include="Views\ImageView.xaml.cs">
+      <DependentUpon>ImageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VideoView.xaml.cs">
+      <DependentUpon>VideoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CurrentView.xaml.cs">
+      <DependentUpon>CurrentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MusicView.xaml.cs">
+      <DependentUpon>MusicView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PlayerView.xaml.cs">
       <DependentUpon>PlayerView.xaml</DependentUpon>
@@ -87,7 +105,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\LibraryView.xaml">
+    <Page Include="Views\ImageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VideoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CurrentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MusicView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -125,6 +155,40 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\library_music_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\library_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\player_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\library_video_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\library_image_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libraries\image.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libraries\music.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libraries\video.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

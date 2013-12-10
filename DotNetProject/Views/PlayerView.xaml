@@ -5,18 +5,29 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="395.276" d:DesignWidth="611.771"
+             Unloaded="UserControl_Unloaded"
+             
              >
     <Grid Margin="0,0,-147,-24">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="55*"/>
             <ColumnDefinition Width="14*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Play" Command="{Binding PlayCommand}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Pause" Command="{Binding PauseCommand}" HorizontalAlignment="Left" Margin="103,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Stop" Command="{Binding StopCommand}" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Browse" Command="{Binding BrowseCommand}" HorizontalAlignment="Left" Margin="284,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <MediaElement Name="mediaElement" Source="{Binding Filename}" LoadedBehavior="Manual" HorizontalAlignment="Left" Height="335" Margin="10,47,0,0" VerticalAlignment="Top" Width="582"/>
-        <Label Content="{Binding Duration}" HorizontalAlignment="Left" Margin="416,10,0,0" VerticalAlignment="Top"></Label>
-
+        <Button Command="{Binding PlayCommand}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="62" Height="37">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="../Resources/player_icon.png"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button Content="Pause" Command="{Binding PauseCommand}" HorizontalAlignment="Left" Margin="103,10,0,0" VerticalAlignment="Top" Width="75"></Button>
+        <Button Content="Stop" Command="{Binding StopCommand}" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" Width="75"></Button>
+        <Button Content="Previous" HorizontalAlignment="Left" Margin="373,10,0,0" VerticalAlignment="Top" Width="75"></Button>
+        <Button Content="Next" HorizontalAlignment="Left" Margin="462,10,0,0" VerticalAlignment="Top" Width="75"></Button>
+        <Button Content="Repeat" HorizontalAlignment="Left" Margin="551,10,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"></Button>
+        <MediaElement Source="{Binding Filename}" Name="mediaElement" LoadedBehavior="Manual" HorizontalAlignment="Left" Height="335" Margin="10,47,0,0" VerticalAlignment="Top" Width="582"  MediaOpened="Element_MediaOpened" MediaEnded="Element_MediaEnded" MediaFailed="Element_MediaFailed" Stretch="Fill"/>
+        <Slider Value="10" Minimum="0" Maximum="1" ValueChanged="Slider_ValueChanged" HorizontalAlignment="Left" Margin="283,10,0,0" VerticalAlignment="Top" Width="85"/>
+        <Slider Maximum="1" Name="timelineSlider" Margin="10,387,12.8,8.2" ValueChanged="SeekToMediaPosition"/>
+        <Label Content="lol_lol" Margin="542,47,154.2,330.2" Grid.ColumnSpan="2"></Label>
     </Grid>
 </UserControl>

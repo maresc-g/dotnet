@@ -9,11 +9,20 @@
              mc:Ignorable="d">
     <Application.Resources>
         <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
-        <DataTemplate DataType="{x:Type vm:LibraryViewModel}">
-            <views:LibraryView />
+        <DataTemplate DataType="{x:Type vm:VideoViewModel}">
+            <views:VideoView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ImageViewModel}">
+            <views:ImageView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:MusicViewModel}">
+            <views:MusicView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:PlayerViewModel}">
             <views:PlayerView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:CurrentViewModel}">
+            <views:CurrentView />
         </DataTemplate>
     </Application.Resources>
 </Application>

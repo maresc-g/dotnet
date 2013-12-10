@@ -22,17 +22,26 @@ namespace DotNetProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        static public event EventHandler ClosingWindow;
+
         public MainWindow()
         {
             InitializeComponent();
-            //base.DataContext = new SongViewModel();
-            //_viewModel = (SongViewModel)base.DataContext;
-            //DataContext = new MainWindowViewModel();
         }
-        //private void ButtonUpdateArtist_Click(object sender, RoutedEventArgs e)
-        //{
-        //    ++_count;
-        //    _viewModel.artist = string.Format("Elvis ({0})", _count);
-        //}
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            e.Cancel = true;
+            if (MainWindow.ClosingWindow != null)
+            {
+                MainWindow.ClosingWindow(this, EventArgs.Empty);
+            }
+        }
+
+        private void AddToLibrary_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = (MainWindowViewModel)(DataContext);
+            vm.addToLibrary();   
+        }
     }
 }

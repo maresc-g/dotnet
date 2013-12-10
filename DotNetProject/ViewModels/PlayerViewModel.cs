@@ -9,20 +9,19 @@ using System.Windows.Input;
 
 namespace DotNetProject.ViewModels
 {
-    class PlayerViewModel : ViewModelBase
+    public class PlayerViewModel : ViewModelBase
     {
         #region Filename
-        private string filename { get; set; }
+        private string _filename { get; set; }
         public string Filename
         {
-            get { return filename; }
+            get { return _filename; }
             set
             {
-                if (filename != value)
-                {
-                    filename = value;
-                    RaisePropertyChanged("Filename");
-                }
+                if (_filename == value)
+                    return;
+                _filename = value;
+                RaisePropertyChanged("Filename");
             }
         }
         #endregion
@@ -46,14 +45,19 @@ namespace DotNetProject.ViewModels
 
         public PlayerViewModel()
         {
-            Filename = "";
+            LibraryViewModel.NewMediaRequested += NewMediaRequestedHandler;
+        }
+
+        public void NewMediaRequestedHandler(object sender, EventArgsStr e)
+        {
+            Filename = e.Arg;
         }
 
         #region BrowseCommand
         public ICommand BrowseCommand { get { return new DelegateCommand(BrowseCall, BrowseEvaluate); } }
         private void BrowseCall(object context)
         {
-            dlg.Filter = "Media files (*.mp3;*.mp4;*.wma;*.wav)|*.mp3;*.mp4;*.wma;*.wav|All files (*.*)|*.*";
+            dlg.Filter = "Media files (*.mp3;*.mp4;*.wma;*.wav;*.jpg;*.jpeg;*.bmp;*.png;*.gif)|*.mp3;*.mp4;*.wma;*.wav;*.jpg;*.jpeg;*.bmp;*.png;*.gif|Music files (*.mp3;*.wma;*.wav)|*.mp3;*.wma;*.wav|Video files (*.mp4)|*.mp4|Images files (*.jpg;*.jpeg;*.bmp;*.png;*.gif)|*.jpg;*.jpeg;*.bmp;*.png;*.gif|All files (*.*)|*.*";
             Nullable<bool> result = dlg.ShowDialog();
             if (result == true)
             {

@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="DotNetProject.Views.MusicView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             d:DesignHeight="400"
+             d:DesignWidth="500"
+             mc:Ignorable="d"
+             KeyDown="Music_KeyDown">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <ListView Name="listView" Margin="8,8,90,26"  ItemsSource="{Binding Songs}" Grid.ColumnSpan="2">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Remove" Click="Remove_Click"/>
+                    <MenuItem Header="Change Properties" Click="ChangeProperties_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding PlaySongCommand}" CommandParameter="{Binding ElementName=listView}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Number}" Width="Auto">
+                        <GridViewColumnHeader Command="{Binding SortList}" CommandParameter="Number">Number</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Width="100">
+                        <GridViewColumnHeader Command="{Binding SortList}" CommandParameter="Name">Name</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Artist}" Width="100">
+                        <GridViewColumnHeader Command="{Binding SortList}" CommandParameter="Artist">Artist</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Album}" Width="100">
+                        <GridViewColumnHeader Command="{Binding SortList}" CommandParameter="Album">Album</GridViewColumnHeader>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Popup Name="popupProperties" Placement="Mouse" PopupAnimation="Fade" AllowsTransparency="True" IsOpen="False">
+            <Grid Grid.Column="1" Height="143" Width="Auto" Background="White" RenderTransformOrigin="0.494,0.609">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="178*"/>
+                    <RowDefinition Height="49*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="124*"/>
+                </Grid.ColumnDefinitions>
+                <DockPanel Grid.ColumnSpan="2"  Margin="0,0,0.6,89">
+                    <Label Content="Number" Margin="0,0,0,-0.2" Width="66"/>
+                    <TextBox Text="{Binding CurrentSong.Number}" Margin="0,0,0,0.2" Width="107"/>
+                </DockPanel>
+                <DockPanel Grid.ColumnSpan="2" Margin="0,28,0.6,62">
+                    <Label Content="Name" Margin="0,0,0,-0.2" Width="66"/>
+                    <TextBox Text="{Binding CurrentSong.Name}" Margin="0,0,0,0.2" Width="107"/>
+                </DockPanel>
+                <DockPanel Grid.ColumnSpan="2" Margin="0,55,0.6,31">
+                    <Label Content="Artist" Margin="0,0,0,-0.2" Width="66"/>
+                    <TextBox Text="{Binding CurrentSong.Artist}" Margin="0,0,0,0.2" Width="107"/>
+                </DockPanel>
+                <DockPanel Grid.ColumnSpan="2" Margin="0,86,0.6,0">
+                    <Label Content="Album" Margin="0,0,0,-0.2" Width="66"/>
+                    <TextBox Text="{Binding CurrentSong.Album}" Margin="0,0,0,0.2" Width="107"/>
+                </DockPanel>
+                <Button Click="AcceptPopup_Click" Margin="6,5,90.6,0" RenderTransformOrigin="0.482,-0.009" Grid.ColumnSpan="2" Height="22" Grid.Row="1" VerticalAlignment="Top">Accept</Button>
+                <Button Click="CancelPopup_Click" Margin="0,5,9.6,0" RenderTransformOrigin="0.5,0.5" Height="22" Grid.Row="1" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Right" Width="76">Cancel</Button>
+            </Grid>
+        </Popup>
+    </Grid>
+</UserControl>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DotNetProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace DotNetProject
 {
-    public class Song
+    [Serializable]
+    public class Song : Media
     {
         #region Name
         private string _name;
@@ -40,12 +42,17 @@ namespace DotNetProject
             set { _album = value; }
         }
         #endregion
-        public Song(int number, string name, string artist, string album)
+
+        public Song()
+        {
+        }
+        public Song(int number, string name, string artist, string album, string path)
         {
             this.Number = number;
             this.Name = name;
             this.Artist = artist;
             this.Album = album;
+            this.Path = path;
         }
     }
 }

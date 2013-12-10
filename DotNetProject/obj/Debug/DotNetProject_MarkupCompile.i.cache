@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\obj\Debug\
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\obj\Debug\
 DotNetProject
 none
 false
 DEBUG;TRACE
-C:\Users\Guillaume\Documents\GitHub\dotnet\DotNetProject\App.xaml
-3365982859
+C:\Users\Guillaume\Documents\Visual Studio 2012\Projects\DotNetProject\DotNetProject\App.xaml
+61336100393
+3-1861267365
+27-1935392215
+17-267086537
+MainWindow.xaml;Views\ImageView.xaml;Views\VideoView.xaml;Views\CurrentView.xaml;Views\MusicView.xaml;Views\PlayerView.xaml;
 
-17-369749935
-152030984429
-MainWindow.xaml;Views\LibraryView.xaml;Views\PlayerView.xaml;
-
-True
+False
 
