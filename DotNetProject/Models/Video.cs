@@ -8,14 +8,6 @@ namespace DotNetProject.Models
 {
     public class Video : Media
     {
-        #region Name
-        private string _name;
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-        #endregion
         #region Artist
         private string _artist;
         public string Artist

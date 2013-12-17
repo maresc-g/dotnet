@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ArrayOfMedia xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Media>
+    <Path>C:\Users\Guillaume\Downloads\test_mp4.mp4</Path>
+    <Name>test_mp4</Name>
+  </Media>
+  <Media>
+    <Path>C:\Users\Guillaume\Downloads\test.wav</Path>
+    <Name>test</Name>
+  </Media>
+  <Media>
+    <Path>C:\Users\Guillaume\Downloads\test.wav</Path>
+    <Name>test</Name>
+  </Media>
+  <Media>
+    <Path>C:\Users\Guillaume\Downloads\test_wma.wma</Path>
+    <Name>test_wma</Name>
+  </Media>
+</ArrayOfMedia>

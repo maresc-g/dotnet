@@ -66,8 +66,9 @@ namespace DotNetProject.ViewModels
         private bool _asc;
         private string _order;
 
-        public VideoViewModel()
+        public VideoViewModel(CurrentPlaylistViewModel currentPlaylist)
         {
+            CurrentPlaylistViewModel = currentPlaylist;
             Videos = getVideos();
             _asc = true;
             _order = "";
@@ -140,11 +141,10 @@ namespace DotNetProject.ViewModels
             {
                 if (listView.SelectedItem != null)
                 {
-                    Video Video = listView.SelectedItem as Video;
-                    var test = Video.Path;
-                    if (Video != null)
+                    Video video = listView.SelectedItem as Video;
+                    if (video != null)
                     {
-                        this.OnNewMediaRequested(new EventArgsStr { Arg = Video.Path });
+                        CurrentPlaylistViewModel.NewPlaylist(new ObservableCollection<Media> { new Media { Name = video.Name, Path = video.Path } });
                     }
                 }
             }
@@ -153,40 +153,40 @@ namespace DotNetProject.ViewModels
 
         public void addToLibrary(string path)
         {
-            Video Video = new Video()
+            Video video = new Video()
             {
                 Name = path.Substring(path.LastIndexOf("\\") + 1, path.LastIndexOf(".") - path.LastIndexOf("\\") - 1),
                 Artist = "Unknown",
                 Path = path
             };
-            Videos.Add(Video);
+            Videos.Add(video);
         }
 
-        public void removeVideo(Video Video)
+        public void removeVideo(Video video)
         {
-            if (Video != null)
+            if (video != null)
             {
-                Videos.Remove(Video);
+                Videos.Remove(video);
             }
         }
 
-        public void handleKeydown(System.Collections.IList Videos, KeyEventArgs e)
+        public void handleKeydown(System.Collections.IList videos, KeyEventArgs e)
         {
             if (e.Key == Key.Delete)
             {
                 ObservableCollection<Video> tmp = new ObservableCollection<Video>();
-                foreach (Video Video in Videos)
+                foreach (Video video in videos)
                 {
-                    tmp.Add(Video);
+                    tmp.Add(video);
                 }
-                foreach (Video Video in tmp)
+                foreach (Video video in tmp)
                 {
-                    Videos.Remove(Video);
+                    Videos.Remove(video);
                 }
             }
         }
 
-        public void changePropertiesVideo(Video Video)
+        public void changePropertiesVideo(Video video)
         {
             throw new NotImplementedException();
         }

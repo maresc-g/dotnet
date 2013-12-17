@@ -68,6 +68,8 @@
     <Compile Include="Models\ImageMedia.cs" />
     <Compile Include="Models\Media.cs" />
     <Compile Include="Models\Video.cs" />
+    <Compile Include="ViewModels\CurrentPlaylistViewModel.cs" />
+    <Compile Include="ViewModels\PlaylistViewModel.cs" />
     <Compile Include="ViewModels\ImageViewModel.cs" />
     <Compile Include="ViewModels\LibraryViewModel.cs" />
     <Compile Include="ViewModels\VideoViewModel.cs" />
@@ -75,6 +77,12 @@
     <Compile Include="ViewModels\MusicViewModel.cs" />
     <Compile Include="ViewModels\PlayerViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Compile Include="Views\CurrentPlayistView.xaml.cs">
+      <DependentUpon>CurrentPlayistView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlayistView.xaml.cs">
+      <DependentUpon>PlayistView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ImageView.xaml.cs">
       <DependentUpon>ImageView.xaml</DependentUpon>
     </Compile>
@@ -105,6 +113,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CurrentPlayistView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PlayistView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\ImageView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -155,29 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\library_music_icon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\library_icon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\player_icon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\library_video_icon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\library_image_icon.png" />
+    <Folder Include="Libraries\Playlists\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libraries\image.xml">
@@ -189,6 +183,28 @@
     <Content Include="Libraries\video.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\stop_button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\nextSong_button.png" />
+    <Resource Include="Resources\pause_button.png" />
+    <Resource Include="Resources\play_button.png" />
+    <Resource Include="Resources\previousSong_button.png" />
+    <Resource Include="Resources\repeat_button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\random_button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\libraryImage_icon.png" />
+    <Resource Include="Resources\libraryMusic.png" />
+    <Resource Include="Resources\libraryVideo_logo.png" />
+    <Resource Include="Resources\playlist_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\player_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

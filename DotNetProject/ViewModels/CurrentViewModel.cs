@@ -75,13 +75,60 @@ namespace DotNetProject.ViewModels
         }
         #endregion
 
+        #region PlaylistViewModel
+        private PlaylistViewModel _playlistViewModel;
+        public PlaylistViewModel PlaylistViewModel
+        {
+            get { return _playlistViewModel; }
+            set
+            {
+                if (_playlistViewModel != value)
+                {
+                    _playlistViewModel = value;
+                    RaisePropertyChanged("PlaylistViewModel");
+                }
+            }
+        }
+        #endregion
+
+        #region CurrentPlaylistViewModel
+        private CurrentPlaylistViewModel _currentPlaylistViewModel;
+        public CurrentPlaylistViewModel CurrentPlaylistViewModel
+        {
+            get { return _currentPlaylistViewModel; }
+            set
+            {
+                if (_currentPlaylistViewModel != value)
+                {
+                    _currentPlaylistViewModel = value;
+                    RaisePropertyChanged("CurrentPlaylistViewModel");
+                }
+            }
+        }
+        #endregion
+
         public CurrentViewModel()
         {
-            MusicViewModel = new MusicViewModel();
+            CurrentPlaylistViewModel = new CurrentPlaylistViewModel();
+            MusicViewModel = new MusicViewModel(CurrentPlaylistViewModel);
             PlayerViewModel = new PlayerViewModel();
-            VideoViewModel = new VideoViewModel();
-            ImageViewModel = new ImageViewModel();
+            VideoViewModel = new VideoViewModel(CurrentPlaylistViewModel);
+            ImageViewModel = new ImageViewModel(CurrentPlaylistViewModel);
+            PlaylistViewModel = null;
             MainWindowViewModel.AddToLibrary += addToLibrary;
+            MainWindowViewModel.ChangeView += HandleChangeView;
+        }
+
+        private void HandleChangeView(object sender, EventArgsStr e)
+        {
+            if (e.Arg.Contains("Playlist"))
+            {
+                string[] tmp = e.Arg.Split(' ');
+                if (tmp.Length > 1)
+                {
+                    PlaylistViewModel = new PlaylistViewModel(tmp[1], CurrentPlaylistViewModel);
+                }
+            }
         }
 
         public void addToLibrary(object sender, EventArgs e)
@@ -98,18 +145,17 @@ namespace DotNetProject.ViewModels
             Nullable<bool> result = dlg.ShowDialog();
             if (result == true)
             {
-                int pos;
-                while ((pos = filterImg.IndexOf('*')) != -1) { filterImg = filterImg.Remove(pos); }
-                while ((pos = filterMusic.IndexOf('*')) != -1) { filterMusic = filterMusic.Remove(pos); }
-                while ((pos = filterVideo.IndexOf('*')) != -1) { filterVideo = filterVideo.Remove(pos); }
-                string []tabImg = filterImg.Split(';');
+                filterImg = filterImg.Replace("*", string.Empty);
+                filterMusic = filterMusic.Replace("*", string.Empty);
+                filterVideo = filterVideo.Replace("*", string.Empty);
+                string[] tabImg = filterImg.Split(';');
                 string []tabMusic = filterMusic.Split(';');
                 string []tabVideo = filterVideo.Split(';');
                 foreach (string item in tabImg)
                 {
                     if (dlg.FileName.IndexOf(item) != -1)
                     {
-                        //MusicViewModel.addToLibrary(dlg.FileName);
+                        ImageViewModel.addToLibrary(dlg.FileName);
                         break;
                     }
                 }

@@ -2,6 +2,8 @@
 using DotNetProject.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +29,17 @@ namespace DotNetProject.Views
         public VideoView()
         {
             InitializeComponent();
+            Height = MainWindow.CurrentHeight;
+            Width = MainWindow.CurrentWidth;
+            listView.Height = MainWindow.CurrentHeight;
+            listView.Width = MainWindow.CurrentWidth;
+            MainWindow.ResizeRequested += (sender, e) =>
+            {
+                Height = MainWindow.CurrentHeight;
+                Width = MainWindow.CurrentWidth;
+                listView.Height = MainWindow.CurrentHeight;
+                listView.Width = MainWindow.CurrentWidth;
+            };
             vm = (VideoViewModel)this.DataContext;
         }
 
@@ -90,6 +103,83 @@ namespace DotNetProject.Views
         private void CancelPopup_Click(object sender, RoutedEventArgs e)
         {
             popupProperties.IsOpen = false;
+        }
+
+        private void ContextMenu_Loaded(object sender, RoutedEventArgs e)
+        {
+            string[] filePaths = Directory.GetFiles("../../Libraries/Playlists/");
+            foreach (string fileName in filePaths)
+            {
+                string tmp = fileName.Substring(fileName.LastIndexOf('/') + 1);
+                tmp = tmp.Remove(tmp.LastIndexOf('.'), tmp.Length - tmp.LastIndexOf('.'));
+                AddToPlaylist.Items.Add(new MenuItem() { Header = tmp });
+            }
+        }
+
+        private void AddToPlaylist_Click(object sender, RoutedEventArgs e)
+        {
+            var menuItem = e.Source as MenuItem;
+            string header = menuItem.Header as string;
+            var vm = (VideoViewModel)DataContext;
+            if (listView.SelectedItems != null)
+            {
+                var Videos = listView.SelectedItems;
+                var playlist = new PlaylistViewModel(header, vm.CurrentPlaylistViewModel);
+                foreach (Video video in Videos)
+                {
+                    playlist.Medias.Add(new Media { Name = video.Name, Path = video.Path });
+                    playlist.savePlaylist();
+                }
+            }
+            else if (listView.SelectedItem != null)
+            {
+                var tmpSong = listView.SelectedItem as Song;
+                var playlist = new PlaylistViewModel(header, vm.CurrentPlaylistViewModel);
+                playlist.Medias.Add(new Media { Name = tmpSong.Name, Path = tmpSong.Path });
+                playlist.savePlaylist();
+            }
+        }
+
+        private void Read_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = (VideoViewModel)DataContext;
+            if (listView.SelectedItems != null)
+            {
+                var Videos = listView.SelectedItems;
+                ObservableCollection<Media> tmp = new ObservableCollection<Media>();
+                foreach (Video video in Videos)
+                {
+                    tmp.Add(new Media { Name = video.Name, Path = video.Path });
+                }
+                vm.CurrentPlaylistViewModel.NewPlaylist(tmp);
+            }
+            else if (listView.SelectedItem != null)
+            {
+                var video = listView.SelectedItem as Video;
+                ObservableCollection<Media> tmp = new ObservableCollection<Media> { new Media { Name = video.Name, Path = video.Path } };
+                vm.CurrentPlaylistViewModel.NewPlaylist(tmp);
+            }
+        }
+
+        private void AddToCurrentPlaylist_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = (VideoViewModel)DataContext;
+            if (listView.SelectedItems != null)
+            {
+                var Videos = listView.SelectedItems;
+                ObservableCollection<Media> tmp = new ObservableCollection<Media>();
+                foreach (Video video in Videos)
+                {
+                    tmp.Add(new Media { Name = video.Name, Path = video.Path });
+                }
+                vm.CurrentPlaylistViewModel.AddToPlaylist(tmp);
+            }
+            else if (listView.SelectedItem != null)
+            {
+                var video = listView.SelectedItem as Video;
+                ObservableCollection<Media> tmp = new ObservableCollection<Media> { new Media { Name = video.Name, Path = video.Path } };
+                vm.CurrentPlaylistViewModel.AddToPlaylist(tmp);
+            }
         }
     }
 }

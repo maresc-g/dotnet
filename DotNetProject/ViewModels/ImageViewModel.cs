@@ -66,8 +66,9 @@ namespace DotNetProject.ViewModels
         private bool _asc;
         private string _order;
 
-        public ImageViewModel()
+        public ImageViewModel(CurrentPlaylistViewModel currentPlaylist)
         {
+            CurrentPlaylistViewModel = currentPlaylist;
             ImageMedias = getImageMedias();
             _asc = true;
             _order = "";
@@ -130,11 +131,10 @@ namespace DotNetProject.ViewModels
             {
                 if (listView.SelectedItem != null)
                 {
-                    ImageMedia ImageMedia = listView.SelectedItem as ImageMedia;
-                    var test = ImageMedia.Path;
-                    if (ImageMedia != null)
+                    ImageMedia imageMedia = listView.SelectedItem as ImageMedia;
+                    if (imageMedia != null)
                     {
-                        this.OnNewMediaRequested(new EventArgsStr { Arg = ImageMedia.Path });
+                        CurrentPlaylistViewModel.NewPlaylist(new ObservableCollection<Media> { new Media { Name = imageMedia.Name, Path = imageMedia.Path } });
                     }
                 }
             }
@@ -143,39 +143,39 @@ namespace DotNetProject.ViewModels
 
         public void addToLibrary(string path)
         {
-            ImageMedia ImageMedia = new ImageMedia()
+            ImageMedia imageMedia = new ImageMedia()
             {
                 Name = path.Substring(path.LastIndexOf("\\") + 1, path.LastIndexOf(".") - path.LastIndexOf("\\") - 1),
                 Path = path
             };
-            ImageMedias.Add(ImageMedia);
+            ImageMedias.Add(imageMedia);
         }
 
-        public void removeImageMedia(ImageMedia ImageMedia)
+        public void removeImageMedia(ImageMedia imageMedia)
         {
-            if (ImageMedia != null)
+            if (imageMedia != null)
             {
-                ImageMedias.Remove(ImageMedia);
+                ImageMedias.Remove(imageMedia);
             }
         }
 
-        public void handleKeydown(System.Collections.IList ImageMedias, KeyEventArgs e)
+        public void handleKeydown(System.Collections.IList imageMedias, KeyEventArgs e)
         {
             if (e.Key == Key.Delete)
             {
                 ObservableCollection<ImageMedia> tmp = new ObservableCollection<ImageMedia>();
-                foreach (ImageMedia ImageMedia in ImageMedias)
+                foreach (ImageMedia imageMedia in imageMedias)
                 {
-                    tmp.Add(ImageMedia);
+                    tmp.Add(imageMedia);
                 }
-                foreach (ImageMedia ImageMedia in tmp)
+                foreach (ImageMedia imageMedia in tmp)
                 {
-                    ImageMedias.Remove(ImageMedia);
+                    ImageMedias.Remove(imageMedia);
                 }
             }
         }
 
-        public void changePropertiesImageMedia(ImageMedia ImageMedia)
+        public void changePropertiesImageMedia(ImageMedia imageMedia)
         {
             throw new NotImplementedException();
         }

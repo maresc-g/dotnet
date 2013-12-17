@@ -4,13 +4,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-             d:DesignHeight="400"
-             d:DesignWidth="500"
              mc:Ignorable="d">
     <Grid AllowDrop="True" DragEnter="Grid_DragEnter" Drop="Grid_Drop">
-        <ContentControl Name="Music" Content="{Binding MusicViewModel}" Margin="0,0,0,0" Visibility="Hidden"/>
-        <ContentControl Name="Video" Content="{Binding VideoViewModel}" Margin="0,0,0,0" Visibility="Hidden"/>
-        <ContentControl Name="Image" Content="{Binding ImageViewModel}" Margin="0,0,0,0" Visibility="Hidden"/>
-        <ContentControl Name="Player" Content="{Binding PlayerViewModel}" Margin="0,0,0,0" />
+        <ContentControl VerticalAlignment="Top" HorizontalAlignment="Left" Name="Music" Content="{Binding MusicViewModel}" Visibility="Hidden"/>
+        <ContentControl VerticalAlignment="Top" HorizontalAlignment="Left" Name="Video" Content="{Binding VideoViewModel}" Visibility="Hidden"/>
+        <ContentControl VerticalAlignment="Top" HorizontalAlignment="Left" Name="Image" Content="{Binding ImageViewModel}" Visibility="Hidden"/>
+        <ContentControl VerticalAlignment="Top" HorizontalAlignment="Left" Name="CurrentPlaylist" Content="{Binding CurrentPlaylistViewModel}" Visibility="Hidden"/>
+        <ContentControl VerticalAlignment="Top" HorizontalAlignment="Left" Name="Playlist" Content="{Binding PlaylistViewModel}" Visibility="Hidden"/>
+        <ContentControl VerticalAlignment="Top" HorizontalAlignment="Left" Name="Player" Content="{Binding PlayerViewModel}" />
     </Grid>
 </UserControl>

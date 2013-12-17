@@ -4,20 +4,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-             d:DesignHeight="400"
-             d:DesignWidth="500"
              mc:Ignorable="d"
              KeyDown="Image_KeyDown">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
-        <ListView Name="listView" Margin="8,8,90,26"  ItemsSource="{Binding ImageMedias}" Grid.ColumnSpan="2">
+        <ListView Name="listView" VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding ImageMedias}" Grid.ColumnSpan="2">
             <ListView.ContextMenu>
-                <ContextMenu>
+                <ContextMenu Loaded="ContextMenu_Loaded">
+                    <MenuItem Header="Read" Click="Read_Click"/>
                     <MenuItem Header="Remove" Click="Remove_Click"/>
                     <MenuItem Header="Change Properties" Click="ChangeProperties_Click"/>
+                    <MenuItem Header="Add to current playlist" Click="AddToCurrentPlaylist_Click"/>
+                    <MenuItem Name="AddToPlaylist" Header="Add to playlist..." Click="AddToPlaylist_Click"/>
                 </ContextMenu>
             </ListView.ContextMenu>
             <i:Interaction.Triggers>

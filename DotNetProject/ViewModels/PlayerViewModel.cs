@@ -45,55 +45,42 @@ namespace DotNetProject.ViewModels
 
         public PlayerViewModel()
         {
-            LibraryViewModel.NewMediaRequested += NewMediaRequestedHandler;
+            CurrentPlaylistViewModel.NewMediaRequested += NewMediaRequestedHandler;
         }
 
-        public void NewMediaRequestedHandler(object sender, EventArgsStr e)
+        public void NewMediaRequestedHandler(object sender, string e)
         {
-            Filename = e.Arg;
+            Filename = e;
+            PlayPauseCall(0);
         }
 
-        #region BrowseCommand
-        public ICommand BrowseCommand { get { return new DelegateCommand(BrowseCall, BrowseEvaluate); } }
-        private void BrowseCall(object context)
+        public void songEnded()
         {
-            dlg.Filter = "Media files (*.mp3;*.mp4;*.wma;*.wav;*.jpg;*.jpeg;*.bmp;*.png;*.gif)|*.mp3;*.mp4;*.wma;*.wav;*.jpg;*.jpeg;*.bmp;*.png;*.gif|Music files (*.mp3;*.wma;*.wav)|*.mp3;*.wma;*.wav|Video files (*.mp4)|*.mp4|Images files (*.jpg;*.jpeg;*.bmp;*.png;*.gif)|*.jpg;*.jpeg;*.bmp;*.png;*.gif|All files (*.*)|*.*";
-            Nullable<bool> result = dlg.ShowDialog();
-            if (result == true)
+            NextSongCall(null);
+        }
+
+        #region PlayPauseCommand
+        public event EventHandler PlayRequested;
+        public event EventHandler PauseRequested;
+        public void PlayPauseCall(int state)
+        {
+            if (state == 0)
             {
-                Filename = dlg.FileName;
                 if (this.PlayRequested != null)
                 {
                     this.PlayRequested(this, EventArgs.Empty);
                 }
             }
-        }
-        private bool BrowseEvaluate(object context) { return true; }
-        #endregion
-        #region PlayCommand
-        public event EventHandler PlayRequested;
-        public ICommand PlayCommand { get { return new DelegateCommand(PlayCall, PlayEvaluate); } }
-        private void PlayCall(object context)
-        {
-            if (this.PlayRequested != null)
+            else if (state == 1)
             {
-                this.PlayRequested(this, EventArgs.Empty);
+                if (this.PauseRequested != null)
+                {
+                    this.PauseRequested(this, EventArgs.Empty);
+                }
             }
         }
-        private bool PlayEvaluate(object context) { return true; }
         #endregion
-        #region PauseCommand
-        public event EventHandler PauseRequested;
-        public ICommand PauseCommand { get { return new DelegateCommand(PauseCall, PauseEvaluate); } }
-        private void PauseCall(object context)
-        {
-            if (this.PauseRequested != null)
-            {
-                this.PauseRequested(this, EventArgs.Empty);
-            }
-        }
-        private bool PauseEvaluate(object context) { return true; }
-        #endregion
+
         #region StopCommand
         public event EventHandler StopRequested;
         public ICommand StopCommand { get { return new DelegateCommand(StopCall, StopEvaluate); } }
@@ -105,6 +92,58 @@ namespace DotNetProject.ViewModels
             }
         }
         private bool StopEvaluate(object context) { return true; }
+        #endregion
+
+        #region NextSongCommand
+        static public event EventHandler NextSongRequested;
+        public ICommand NextSongCommand { get { return new DelegateCommand(NextSongCall, NextSongEvaluate); } }
+        private void NextSongCall(object context)
+        {
+            if (PlayerViewModel.NextSongRequested != null)
+            {
+                PlayerViewModel.NextSongRequested(this, EventArgs.Empty);
+            }
+        }
+        private bool NextSongEvaluate(object context) { return true; }
+        #endregion
+
+        #region PreviousSongCommand
+        static public event EventHandler PreviousSongRequested;
+        public ICommand PreviousSongCommand { get { return new DelegateCommand(PreviousSongCall, PreviousSongEvaluate); } }
+        private void PreviousSongCall(object context)
+        {
+            if (PlayerViewModel.PreviousSongRequested != null)
+            {
+                PlayerViewModel.PreviousSongRequested(this, EventArgs.Empty);
+            }
+        }
+        private bool PreviousSongEvaluate(object context) { return true; }
+        #endregion
+
+        #region RandomCommand
+        static public event EventHandler RandomRequested;
+        public ICommand RandomCommand { get { return new DelegateCommand(RandomCall, RandomEvaluate); } }
+        private void RandomCall(object context)
+        {
+            if (PlayerViewModel.RandomRequested != null)
+            {
+                PlayerViewModel.RandomRequested(this, EventArgs.Empty);
+            }
+        }
+        private bool RandomEvaluate(object context) { return true; }
+        #endregion
+
+        #region RepeatCommand
+        static public event EventHandler RepeatRequested;
+        public ICommand RepeatCommand { get { return new DelegateCommand(RepeatCall, RepeatEvaluate); } }
+        private void RepeatCall(object context)
+        {
+            if (PlayerViewModel.RepeatRequested != null)
+            {
+                PlayerViewModel.RepeatRequested(this, EventArgs.Empty);
+            }
+        }
+        private bool RepeatEvaluate(object context) { return true; }
         #endregion
     }
 }

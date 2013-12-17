@@ -1,6 +1,9 @@
-﻿using DotNetProject.ViewModels;
+﻿using DotNetProject.Models;
+using DotNetProject.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +29,17 @@ namespace DotNetProject.Views
         public MusicView()
         {
             InitializeComponent();
+            Height = MainWindow.CurrentHeight;
+            Width = MainWindow.CurrentWidth;
+            listView.Height = MainWindow.CurrentHeight;
+            listView.Width = MainWindow.CurrentWidth;
+            MainWindow.ResizeRequested += (sender, e) =>
+            {
+                Height = MainWindow.CurrentHeight;
+                Width = MainWindow.CurrentWidth;
+                listView.Height = MainWindow.CurrentHeight;
+                listView.Width = MainWindow.CurrentWidth;
+            };
             vm = (MusicViewModel)this.DataContext;
         }
 
@@ -68,8 +82,32 @@ namespace DotNetProject.Views
                         Name = tmpSong.Name,
                         Artist = tmpSong.Artist,
                         Album = tmpSong.Album,
-                        Path = vm.CurrentSong.Path
+                        Path = tmpSong.Path
                     };
+            }
+        }
+
+        private void AddToPlaylist_Click(object sender, RoutedEventArgs e)
+        {
+            var menuItem = e.Source as MenuItem;
+            string header = menuItem.Header as string;
+            var vm = (MusicViewModel)DataContext;
+            if (listView.SelectedItems != null)
+            {
+                var Songs = listView.SelectedItems;
+                var playlist = new PlaylistViewModel(header, vm.CurrentPlaylistViewModel);
+                foreach (Song tmpSong in Songs)
+                {
+                    playlist.Medias.Add(new Media { Name = tmpSong.Name, Path = tmpSong.Path });
+                    playlist.savePlaylist();
+                }
+            }
+            else if (listView.SelectedItem != null)
+            {
+                var tmpSong = listView.SelectedItem as Song;
+                var playlist = new PlaylistViewModel(header, vm.CurrentPlaylistViewModel);
+                playlist.Medias.Add(new Media { Name = tmpSong.Name, Path = tmpSong.Path });
+                playlist.savePlaylist();
             }
         }
 
@@ -93,6 +131,59 @@ namespace DotNetProject.Views
         private void CancelPopup_Click(object sender, RoutedEventArgs e)
         {
             popupProperties.IsOpen = false;
+        }
+
+        private void ContextMenu_Loaded(object sender, RoutedEventArgs e)
+        {
+            string[] filePaths = Directory.GetFiles("../../Libraries/Playlists/");
+            foreach (string fileName in filePaths)
+            {
+                string tmp = fileName.Substring(fileName.LastIndexOf('/') + 1);
+                tmp = tmp.Remove(tmp.LastIndexOf('.'), tmp.Length - tmp.LastIndexOf('.'));
+                AddToPlaylist.Items.Add(new MenuItem() { Header = tmp });
+            }
+        }
+
+        private void Read_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = (MusicViewModel)DataContext;
+            if (listView.SelectedItems != null)
+            {
+                var Songs = listView.SelectedItems;
+                ObservableCollection<Media> tmp = new ObservableCollection<Media>();
+                foreach (Song song in Songs)
+                {
+                    tmp.Add(new Media { Name = song.Name, Path = song.Path });
+                }
+                vm.CurrentPlaylistViewModel.NewPlaylist(tmp);
+            }
+            else if (listView.SelectedItem != null)
+            {
+                var song = listView.SelectedItem as Song;
+                ObservableCollection<Media> tmp = new ObservableCollection<Media> { new Media { Name = song.Name, Path = song.Path } };
+                vm.CurrentPlaylistViewModel.NewPlaylist(tmp);
+            }
+        }
+
+        private void AddToCurrentPlaylist_Click(object sender, RoutedEventArgs e)
+        {
+            var vm = (MusicViewModel)DataContext;
+            if (listView.SelectedItems != null)
+            {
+                var Songs = listView.SelectedItems;
+                ObservableCollection<Media> tmp = new ObservableCollection<Media>();
+                foreach (Song song in Songs)
+                {
+                    tmp.Add(new Media { Name = song.Name, Path = song.Path });
+                }
+                vm.CurrentPlaylistViewModel.AddToPlaylist(tmp);
+            }
+            else if (listView.SelectedItem != null)
+            {
+                var song = listView.SelectedItem as Song;
+                ObservableCollection<Media> tmp = new ObservableCollection<Media> { new Media { Name = song.Name, Path = song.Path } };
+                vm.CurrentPlaylistViewModel.AddToPlaylist(tmp);
+            }
         }
     }
 }

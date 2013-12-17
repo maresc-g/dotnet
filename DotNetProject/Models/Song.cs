@@ -10,14 +10,6 @@ namespace DotNetProject
     [Serializable]
     public class Song : Media
     {
-        #region Name
-        private string _name;
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-        #endregion
         #region Artist
         private string _artist;
         public string Artist

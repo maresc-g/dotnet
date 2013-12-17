@@ -17,6 +17,15 @@ namespace DotNetProject.Models
         }
         #endregion
 
+        #region Name
+        private string _name;
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+        #endregion
+        
         public Media()
         {
         }

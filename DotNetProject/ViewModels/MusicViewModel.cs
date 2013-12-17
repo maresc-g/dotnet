@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿using DotNetProject.Models;
+using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -81,8 +82,9 @@ namespace DotNetProject.ViewModels
         private bool _asc;
         private string _order;
 
-        public MusicViewModel()
+        public MusicViewModel(CurrentPlaylistViewModel currentPlaylist)
         {
+            CurrentPlaylistViewModel = currentPlaylist;
             Songs = getSongs();
             _asc = true;
             _order = "";
@@ -176,10 +178,9 @@ namespace DotNetProject.ViewModels
                 if (listView.SelectedItem != null)
                 {
                     Song song = listView.SelectedItem as Song;
-                    var test = song.Path;
                     if (song != null)
                     {
-                        this.OnNewMediaRequested(new EventArgsStr { Arg = song.Path });
+                        CurrentPlaylistViewModel.NewPlaylist(new ObservableCollection<Media> { new Media { Name = song.Name, Path = song.Path } });
                     }
                 }
             }

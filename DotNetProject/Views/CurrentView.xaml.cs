@@ -33,6 +33,8 @@ namespace DotNetProject.Views
             Music.Visibility = System.Windows.Visibility.Hidden;
             Video.Visibility = System.Windows.Visibility.Hidden;
             Image.Visibility = System.Windows.Visibility.Hidden;
+            Playlist.Visibility = System.Windows.Visibility.Hidden;
+            CurrentPlaylist.Visibility = System.Windows.Visibility.Hidden;
             if (e.Arg == "Player")
             {
                 Player.Visibility = System.Windows.Visibility.Visible;
@@ -48,6 +50,14 @@ namespace DotNetProject.Views
             else if (e.Arg == "Image")
             {
                 Image.Visibility = System.Windows.Visibility.Visible;
+            }
+            else if (e.Arg == "Playlist")
+            {
+                CurrentPlaylist.Visibility = System.Windows.Visibility.Visible;
+            }
+            else if (e.Arg.Contains("Playlist"))
+            {
+                Playlist.Visibility = System.Windows.Visibility.Visible;
             }
         }
         private void Grid_DragEnter(object sender, DragEventArgs e)
@@ -70,6 +80,38 @@ namespace DotNetProject.Views
                     if (vmMusic != null)
                     {
                         vmMusic.addToLibrary(File);
+                    }
+                }
+                else if (Video.Visibility == System.Windows.Visibility.Visible)
+                {
+                    var vmVideo = Video.Content as VideoViewModel;
+                    if (vmVideo != null)
+                    {
+                        vmVideo.addToLibrary(File);
+                    }
+                }
+                else if (Image.Visibility == System.Windows.Visibility.Visible)
+                {
+                    var vmImage = Image.Content as ImageViewModel;
+                    if (vmImage != null)
+                    {
+                        vmImage.addToLibrary(File);
+                    }
+                }
+                else if (Playlist.Visibility == System.Windows.Visibility.Visible)
+                {
+                    var vmPlaylist = Playlist.Content as PlaylistViewModel;
+                    if (vmPlaylist != null)
+                    {
+                        vmPlaylist.addToLibrary(File);
+                    }
+                }
+                else if (CurrentPlaylist.Visibility == System.Windows.Visibility.Visible)
+                {
+                    var vmCurrentPlaylist = CurrentPlaylist.Content as CurrentPlaylistViewModel;
+                    if (vmCurrentPlaylist != null)
+                    {
+                        vmCurrentPlaylist.addToLibrary(File);
                     }
                 }
             }

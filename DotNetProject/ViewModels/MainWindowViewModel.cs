@@ -24,6 +24,22 @@ namespace DotNetProject.ViewModels
         static public event EventHandler<EventArgsStr> ChangeView;
         static public event EventHandler AddToLibrary;
 
+        #region Test
+        private string _test;
+        public string Test
+        {
+            get { return _test; }
+            set
+            {
+                if (_test != value)
+                {
+                    _test = value;
+                    RaisePropertyChanged("Test");
+                }
+            }
+        }
+        #endregion
+
         #region CurrentViewModel
         private ViewModelBase _currentViewModel;
         public ViewModelBase CurrentViewModel
@@ -52,7 +68,16 @@ namespace DotNetProject.ViewModels
             var item = context as TreeViewItem;
             if (item != null)
             {
-                var header = item.Header as string;
+                var parent = item.Parent as TreeViewItem;
+                string header;
+                if (parent != null)
+                {
+                    header = (parent.Header as string) + " " + item.Header as string;
+                }
+                else
+                {
+                    header = item.Header as string;
+                }
                 if (MainWindowViewModel.ChangeView != null)
                 {
                     MainWindowViewModel.ChangeView(this, new EventArgsStr { Arg = header });

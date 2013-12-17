@@ -6,19 +6,23 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="DotNetProject.MainWindow"
         Title="MyWindowsMediaPlayerV2"
-        Height="600"
-        Width="1000"
+        MinHeight="400"
+        MinWidth="600"
+        Height="650"
+        Width="800"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
         mc:Ignorable="d"
+        SizeChanged="Window_SizeChanged"
+        Loaded="Window_Loaded"
         Closing="Window_Closing">
     <Grid>
-        <Menu IsMainMenu="True">
+        <Menu IsMainMenu="True" Height="20" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top">
             <MenuItem Header="_File">
                 <MenuItem Header="Add to library..." Name="AddToLibrary" Click="AddToLibrary_Click"/>
             </MenuItem>
         </Menu>
-        <ContentControl Content="{Binding CurrentViewModel}" Margin="137,20,9.6,0.4" />
-        <TreeView x:Name="treeView" HorizontalAlignment="Left" Height="550" Margin="10,20,0,0" VerticalAlignment="Top" Width="122">
+        <ContentControl Name="currentView" Content="{Binding CurrentViewModel}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,20,0,0" Height="550" Width="643"/>
+        <TreeView x:Name="treeView" HorizontalAlignment="Left" Height="550" Margin="10,20,0,0" VerticalAlignment="Top" Width="100">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectedItemChanged">
                     <i:InvokeCommandAction Command="{Binding ChangeViewCommand}" CommandParameter="{Binding SelectedItem, ElementName=treeView}"/>
@@ -28,6 +32,7 @@
             <TreeViewItem Header="Music"/>
             <TreeViewItem Header="Video"/>
             <TreeViewItem Header="Image"/>
+            <TreeViewItem Header="Playlist" Name="PlayListItem"/>
         </TreeView>
     </Grid>
 </Window>
