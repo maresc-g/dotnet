@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<ArrayOfSong xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\[2009] Karkelot\02 - Eraamaan Aarjyt .mp3</Path>
+    <Name>02 - Eraamaan Aarjyt </Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\[2009] Karkelot\03 - Isku Pitkaastaa Ilosta .mp3</Path>
+    <Name>03 - Isku Pitkaastaa Ilosta </Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\[2009] Karkelot\04 - Mettaanpeiton Valtiaalle .mp3</Path>
+    <Name>04 - Mettaanpeiton Valtiaalle </Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\[2009] Karkelot\05 - Juodaan Viinaa (Hector cover) .mp3</Path>
+    <Name>05 - Juodaan Viinaa (Hector cover) </Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\[2009] Karkelot\06 - Uniaika .mp3</Path>
+    <Name>06 - Uniaika </Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\[2009] Karkelot\07 - Kultanainen .mp3</Path>
+    <Name>07 - Kultanainen </Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\[2009] Karkelot\08 - Bring Us Pints Of Beer .mp3</Path>
+    <Name>08 - Bring Us Pints Of Beer </Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\[2009] Karkelot\09 - Huppiaan Aarre .mp3</Path>
+    <Name>09 - Huppiaan Aarre </Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\[2009] Karkelot\10 - Koennin Kuokkamies (Bonus Track) .mp3</Path>
+    <Name>10 - Koennin Kuokkamies (Bonus Track) </Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\[2009] Karkelot\11 - Vesaisen Sota .mp3</Path>
+    <Name>11 - Vesaisen Sota </Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\[2009] Karkelot\12 - Sulasilmaa .mp3</Path>
+    <Name>12 - Sulasilmaa </Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\[2009] Karkelot\13 - Kohmelo .mp3</Path>
+    <Name>13 - Kohmelo </Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\[2009] Karkelot\01 - Vodka .mp3</Path>
+    <Name>01 - Vodka </Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\1970 - Black Sabbath\01 - Black Sabbath.mp3</Path>
+    <Name>01 - Black Sabbath</Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\1970 - Black Sabbath\02 - The Wizard.mp3</Path>
+    <Name>02 - The Wizard</Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\1970 - Black Sabbath\03 - Behind The Wall Of Sleep.mp3</Path>
+    <Name>03 - Behind The Wall Of Sleep</Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\1970 - Black Sabbath\04 - N.I.B..mp3</Path>
+    <Name>04 - N.I.B.</Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\1970 - Black Sabbath\05 - Evil Woman.mp3</Path>
+    <Name>05 - Evil Woman</Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\1970 - Black Sabbath\06 - Sleeping Village.mp3</Path>
+    <Name>06 - Sleeping Village</Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+  <Song>
+    <Path>C:\Users\Guillaume\Documents\dotNet\Music\1970 - Black Sabbath\07 - Warning.mp3</Path>
+    <Name>07 - Warning</Name>
+    <Artist>Unknown</Artist>
+    <Number>0</Number>
+    <Album>Unknown</Album>
+  </Song>
+</ArrayOfSong>

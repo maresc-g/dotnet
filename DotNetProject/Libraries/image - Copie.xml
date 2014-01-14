@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ArrayOfImageMedia xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ImageMedia>
+      <Name>play_button</Name>
+      <Path>C:\Users\Guillaume\Pictures\play_button.png</Path>
+   </ImageMedia>
+</ArrayOfImageMedia>
